@@ -1,0 +1,4 @@
+interface:
+  display_name: "Anti Surrender"
+  short_description: "Check understanding before code changes and handoff"
+  default_prompt: "Use $anti-surrender before changing code and before handing over the result or opening any PR, including a draft."

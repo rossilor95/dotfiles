@@ -1,0 +1,3 @@
+interface:
+  display_name: "Pick up Issue"
+  short_description: "Implement a Jira or GitHub issue with understanding checks"
