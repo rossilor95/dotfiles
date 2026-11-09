@@ -49,6 +49,7 @@ Use a small table:
 | --- | --- | --- | --- |
 
 Use observations such as gap observed, explained after instruction, applied to a new case, or retained on a later task.
+Also record the hint step the human needed, a large difference between confidence rating and result, and check overrides.
 Base each observation on an actual human answer. Do not invent progress or record model answers as human evidence.
 Update the existing concept row to keep the record short.
 Store generalized concepts and concise evidence, without proprietary code, ticket contents, or personal performance rankings.
@@ -60,4 +61,15 @@ On a later relevant task, ask one new application of a previously difficult conc
 Use that question within the normal question budget.
 Record retained understanding only after an adequate answer on that later task.
 Use an incorrect answer to select the next practice step, not as a penalty.
+
+## Fade support
+
+Reduce support as understanding grows. Support that helps a beginner can slow down a person who already knows the concept.
+
+- Retained concept: ask one check question or none. Skip the human-approach step for that concept.
+- Concept applied to a new case once: ask one question. Start hints at step 2 or skip them.
+- Gap observed: use the full question budget and the full hint order.
+
+Restore full support when a retained concept receives an incorrect answer.
+Repeated confidence that is higher than the results is a reason to keep support, even for a retained concept.
 These notes support learning. They do not certify ability or establish a causal effect from this workflow.

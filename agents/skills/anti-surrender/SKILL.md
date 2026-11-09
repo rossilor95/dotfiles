@@ -40,6 +40,7 @@ After reading the task, ask the human to explain these points in their own words
 Connect the first question to the user problem and expected product outcome when the task changes product behavior.
 Include one architecture question about the existing flow, component boundary, or data ownership when relevant.
 Use three or four questions in total; adapt the set to the task rather than adding a separate exam.
+Use fewer questions for concepts that the learning record marks as retained. Use the saved budget on open gaps.
 Use task-specific questions. Ask a short group together when the questions are independent.
 Require explanations or predictions. Avoid multiple-choice questions, yes/no questions, and "does this make sense?" checks.
 Keep proposed solutions and model answers out of the questions.
@@ -54,9 +55,22 @@ Record remaining unknowns with a concrete way to resolve them.
 Resolve unknowns that determine scope or required behavior before editing dependent code.
 If the human already saw an AI solution, record that exposure rather than claim an independent starting view.
 
+### Human approach first
+
+When the task has a learning goal, ask the human for their approach before you show a plan.
+Ask where they would change the code, and which risk they see. A short sketch is sufficient.
+If the human is blocked, give hints in this order. Stop at the first step that unblocks them:
+
+1. Where to look: a file, a function, or a test.
+2. The concept that applies, without its application to this code.
+3. The solution, with an explanation of each step.
+
+Record the step that the human needed. Skip this step for trivial work or when the human declines it.
+
 ## 3. Implement with clear evidence
 
-Before coding, challenge a flawed approach and explain any material alternative or hidden failure case.
+Before coding, compare your plan with the human's approach. Keep valid parts of their approach.
+Challenge a flawed approach and explain any material alternative or hidden failure case.
 Separate verified facts, inferences, and unknowns for important API, library, and configuration claims.
 Verify important uncertain claims against repository code or official documentation.
 Keep human decisions separate from AI proposals.
@@ -66,6 +80,14 @@ Pause dependent edits when new evidence changes required behavior or an importan
 Ask a focused follow-up; retain valid earlier answers instead of restarting the whole check.
 Continue authorized work that does not depend on the answer.
 Run normal tests and required checks. Record omitted tests and uncovered cases plainly.
+
+Watch for low-learning interaction patterns:
+
+- The human sends error after error and asks only for the next fix.
+- The human asks you to do all remaining work without reading the result.
+
+When you see one of these patterns, ask one question about the cause before you give the next fix.
+Use the hint order from the first check. Do not block urgent work; record the pattern instead.
 
 ## 4. Check understanding before handoff
 
@@ -77,13 +99,18 @@ Prepare local PR text while waiting if useful; keep PR creation pending.
 
 Explain the actual change, important decisions, effects on existing code, and remaining validation limits.
 Include source locations and a concrete example. Distinguish required behavior from actual behavior.
+Give the human a command or test that verifies the most important behavior. They must be able to run it themselves.
+Make verification cheaper than trusting your summary.
 Read [the question guide](references/question-guide.md), then select three to five relevant questions.
+For concepts that the learning record marks as retained, use one check question or none.
 Cover context, architecture, and the technical solution through the questions that matter for this change.
 For product changes, include the user outcome, a product assumption, or evidence that could challenge the proposed value.
 Explain any category that does not apply; avoid questions invented merely to fill a category.
 Prepare source-backed assessment criteria before asking. Mark critical questions without revealing their answers.
 Ask one question at a time and wait for the human's answer.
 Include at least one new case that the explanation did not already solve.
+Before the human answers the new case, ask how sure they are: low, medium, or high.
+After the assessment, compare that rating with the result. Tell the human about a large difference.
 Prioritize failure prediction, affected dependencies, test limits, and the reason for important decisions.
 
 Allow source code and official documentation. Request the human's own answer rather than an AI-generated answer.
@@ -114,6 +141,8 @@ Use the learning guide to update the personal learning record from actual answer
 
 Publish notes, change external state, or merge only within existing authorization.
 If the user explicitly overrides a check, record the exception and its limits. Never report it as a passed check.
+Record overrides in the learning record. Frequent overrides show that the friction is too high for this person or task type.
+Then ask fewer, more focused questions on later tasks of that type.
 Jira and PR workflows must wait at pending checks rather than bypass them through a draft PR.
 
 ## Limits and sources
