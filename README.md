@@ -13,13 +13,13 @@ Each harness reads the same `SKILL.md` files.
 
 `agents/openai.yaml` files hold Codex UI metadata. Other harnesses ignore them.
 
-Link each skill into the skill folder of each harness.
-First remove any real folder with the same name (for example `~/.codex/skills/pick-up-issue`).
-If you do not, `ln` puts the link inside that folder.
+Install with the [`skills` CLI](https://github.com/vercel-labs/skills).
+It puts one copy in `~/.agents/skills/` (Codex reads it there) and symlinks it for Claude Code:
 
 ```bash
-for h in ~/.agents ~/.claude ~/.codex; do
-  mkdir -p "$h/skills"
-  for s in "$PWD"/agents/skills/*/; do ln -sfn "${s%/}" "$h/skills/$(basename "$s")"; done
-done
+npx skills add rossilor95/dotfiles -g -s '*' -a claude-code -a codex -y
 ```
+
+After you push a change, get it with `npx skills update -g`.
+First remove any real folder with the same skill name in `~/.claude/skills` or `~/.codex/skills`.
+An old copy there can hide the installed skill.
