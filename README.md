@@ -8,6 +8,7 @@ Each harness reads the same `SKILL.md` files.
 | Skill | Purpose |
 | --- | --- |
 | `pick-up-issue` | Take a Jira or GitHub issue from reading to an open PR. |
+| `create-pr` | Open a PR whose description explains intent, follows the repo template, and links the issue. |
 | `anti-surrender` | Check human understanding before code changes and before handoff. |
 
 `agents/openai.yaml` files hold Codex UI metadata. Other harnesses ignore them.
