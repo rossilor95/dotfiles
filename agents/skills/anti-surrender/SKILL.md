@@ -67,6 +67,18 @@ If the human is blocked, give hints in this order. Stop at the first step that u
 
 Record the step that the human needed. Skip this step for trivial work or when the human declines it.
 
+### Brief Socratic practice
+
+If a focused hint leaves a conceptual gap during either check, offer brief Socratic practice on that concept.
+If the human opts in, ask one question about a new case.
+If needed, give one focused hint and ask one follow-up question.
+
+Use `socratic-tutor` only when the human explicitly asks for structured tutoring or mastery practice and the skill is available.
+Give the tutor the concept and the human's earlier answers as context.
+
+After brief practice or when the human returns from tutoring, resume the pending check with a fresh question about the actual change.
+Retain valid earlier answers and apply the check's existing passing criteria.
+
 ## 3. Implement with clear evidence
 
 Before coding, compare your plan with the human's approach. Keep valid parts of their approach.
@@ -117,6 +129,7 @@ Allow source code and official documentation. Request the human's own answer rat
 Accept plain language and valid alternatives. Assess causal understanding rather than exact wording or trivia.
 For an incorrect answer, explain the gap and ask a different case about the same concept.
 After two unsuccessful attempts on one concept, offer a focused walkthrough and keep the check pending.
+If the human wants to practice the concept, follow the [Socratic practice guidance](#brief-socratic-practice).
 Verify disputed question premises against evidence. Use human review when an important dispute remains unresolved.
 
 The check passes when critical behavior is correctly explained and a new case receives a correct, reasoned prediction.
